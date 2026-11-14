@@ -1,0 +1,17 @@
+---
+- name: Install Java on Ubuntu
+  hosts: all
+  become: true
+
+  vars_files:
+    - vars.yaml
+
+  tasks:
+    - name: Update APT cache
+      ansible.builtin.apt:
+        update_cache: "{{ update_cache }}"
+
+    - name: Install OpenJDK
+      ansible.builtin.apt:
+        name: "{{ jdk_name }}"
+        state: present
