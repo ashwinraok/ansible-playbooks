@@ -17,5 +17,16 @@
   service: 
     name : nginx
     state: started
+
+- name: Copy Nginx Index Page
+  copy:
+    src: index.nginx-debian.html
+    dest: /var/www/html/index.nginx-debian.html
+    mode: '0777'
+
+- name: Restart Nginx
+  service:
+    name: nginx
+    state: restared 
     
     
