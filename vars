@@ -1,0 +1,3 @@
+---
+apt_update: yes
+package_name: openjdk-17-jdk
